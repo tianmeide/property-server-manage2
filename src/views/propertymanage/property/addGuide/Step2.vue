@@ -6,9 +6,12 @@
       <span style="color: blue;font-weight: 700;"></span>
       单元数量:
       <!-- <a-form-model-item label="单元数量：" prop="region" class="units" :labelCol="labelCol" :wrapperCol="wrapperCol"> -->
-      <a-select v-model="form2.region">
-        <a-select-option value="1">1</a-select-option>
-        <a-select-option value="2">2</a-select-option>
+      <a-select v-model="form2.region" @change='change()'>
+          <a-select-option value="1">1</a-select-option>
+          <a-select-option value="2">2</a-select-option>
+          <a-select-option value="3">3</a-select-option>
+          <a-select-option value="4">4</a-select-option>
+          <a-select-option value="5">5</a-select-option>
       </a-select>
       <!-- </a-form-model-item> -->
     </a-row>
@@ -203,6 +206,12 @@ export default {
         })
     },
     methods: {
+        change() {
+            const unitNumber = this.form2.region
+            for (let i = 0; i < this.data.length; i++) {
+                this.data[i].unitCount = unitNumber
+            }
+        },
         nextStep() {
             this.$emit('nextStep')
         },
