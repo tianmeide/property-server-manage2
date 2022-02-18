@@ -41,3 +41,49 @@ export function updateBuilding(parameter) {
         data: parameter
     })
 }
+
+export function selectUnit(parameter) {
+    return axios({
+        url: '/estate/selectUnit',
+        method: 'post',
+        data: parameter,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+}
+
+export function updateUnit(parameter) {
+    return axios({
+        url: '/estate/updateUnit',
+        method: 'post',
+        data: parameter
+    })
+}
+
+export function insertCell(parameter) {
+    return axios({
+        url: '/estate/insertCell',
+        method: 'post',
+        data: parameter,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+}
+
+export function selectBuildingByEstate(parameter) {
+    return axios({
+        url: '/estate/selectBuildingByEstate',
+        method: 'post',
+        data: parameter
+    })
+}
+
+export function selectUnitByBuildingCode(parameter) {
+    return axios({
+        url: '/estate/selectUnitByBuildingCode',
+        method: 'post',
+        data: parameter
+    })
+}

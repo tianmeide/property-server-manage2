@@ -57,6 +57,7 @@ const user = {
                         const result = response.result
                         if (result.role && result.role.permissions.length > 0) {
                             const role = result.role
+                            console.log('---' + result)
                             role.permissions = result.role.permissions
                             role.permissions.map(per => {
                                 if (per.actionEntitySet != null && per.actionEntitySet.length > 0) {

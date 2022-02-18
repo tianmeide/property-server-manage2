@@ -213,6 +213,22 @@ export default {
             }
         },
         nextStep() {
+            // 获取表格中的数据
+            const dataArray = this.data
+            // 拼接字符串
+            var param = '['
+            for (let i = 0; i < dataArray.length; i++) {
+                if (i !== dataArray.length - 1) {
+                    param += '{"buildingCode": "' + dataArray[i].buildingCode + '", "unitCount": ' + dataArray[i].unitCount + '},'
+                } else {
+                    param += '{"buildingCode": "' + dataArray[i].buildingCode + '", "unitCount": ' + dataArray[i].unitCount + '}]'
+                }
+            }
+            console.log('param:' + param)
+            this.$store.commit('SET_TITLE', {
+                unitMessage: param,
+                estateCode: this.$store.state.oneStep.estateCode
+            })
             this.$emit('nextStep')
         },
         prevStep() {
